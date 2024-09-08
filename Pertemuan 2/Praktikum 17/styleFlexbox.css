@@ -13,9 +13,36 @@ body{
 .container-satu{
     width: 800px;
     margin: 50px auto;
-    background-color: #fff;
+    background-color: greenyellow;
     padding: 20px;
     box-sizing: border-box;
     display: flex;
 }
 
+.slidebar-satu {
+    width: 25%;
+    text-align: center;
+}
+
+.slidebar-dua{
+    width: 25%;
+}
+
+.kolom-utama{
+    width: 50%;
+}
+
+h3{
+    text-align: center;
+}
+
+ul{
+    display: inline-block;
+    text-align: left;
+}
+
+img{
+    float: center;
+    height: 250;
+    width: 350;
+}
