@@ -1,0 +1,133 @@
+<html>
+
+<head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .container {
+            width: 500px;
+        }
+
+        .name,
+        .address,
+        .date,
+        .gender,
+        .hobby,
+        .job {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+            color: red;
+        }
+
+        .box-one,
+        .box-two {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post">
+        <div class="container">
+            <div class="name">
+                <div class="box-one">
+                    <label for="nama">Nama</label>
+                </div>
+                <div class="box-two">
+                    <input type="text" id="nama">
+                </div>
+            </div>
+            <div class="address">
+                <div class="box-one">
+                    <label for="alamat">Alamat</label>
+                </div>
+                <div class="box-two">
+                    <input type="text" style="height: 100px;" id="alamat">
+                </div>
+            </div>
+            <div class="date">
+                <div class="box-one">
+                    <label for="ttl">Tanggal lahir</label>
+                </div>
+                <div class="box-two">
+                    <input type="date" id="ttl">
+                </div>
+            </div>
+            <div class="gender">
+                <div class="box-one">
+                    <p>Jenis Kelamin</p>
+                </div>
+                <div class="box-two">
+                    <input type="checkbox" name="jenis" value="Laki-Laki"> Laki-Laki
+                    <br>
+                    <input type="checkbox" name="jenis" value="Wanita"> Wanita
+                </div>
+            </div>
+            <div class="hobby">
+                <div class="box-one">
+                    <p>Hobby</p>
+                </div>
+                <div class="box-two">
+                    <input type="checkbox" name="hobi" value="Berenang"> Berenang
+                    <input type="checkbox" name="hobi" value="Berlari"> Berlari
+                    <input type="checkbox" name="hobi" value="Lain-Lain"> Lain-Lain
+                </div>
+            </div>
+            <div class="job">
+                <div class="box-one">
+                    <p>Pekerjaan</p>
+                </div>
+                <div class="box-two">
+                    <input type="checkbox" name="pekerjaan" value="Swasta"> Swasta
+                    <input type="checkbox" name="pekerjaan" value="PNS"> PNS
+                    <input type="checkbox" name="pekerjaan" value="Lain-Lain"> Lain-Lain
+                </div>
+            </div>
+            <input type="checkbox" id="check" style="margin: 5px;"><span style="color: red;">Check jika anda akan
+                mengirimkan data ini</span>
+            <br>
+            <input type="submit" value=" Cek! " style="margin: 5px;" onclick="data()">
+        </div>
+    </form>
+    <script>
+        const data = () => {
+            const jenisKelamin = document.querySelectorAll('input[name="jenis"]:checked')
+            const pekerjaan = document.querySelectorAll('input[name="pekerjaan"]:checked')
+            const nama = document.getElementById('nama').value
+            const alamat = document.getElementById('alamat').value
+            const ttl = document.getElementById('ttl').value
+            const check = document.getElementById('check').checked
+            if (nama != "" || alamat != "" || ttl != "") {
+                if (check) {
+                    if (jenisKelamin.length != 1) {
+                        alert('pilih salah satu jenis kelamin')
+                    } else {
+                        if (pekerjaan.length != 1) {
+                            alert('pilih salah satu pekerjaan')
+                        }
+                    }
+                } else {
+                    alert('mohon untuk click check')
+                }
+            } else {
+                alert('isi data diri anda')
+            }
+        }
+    </script>
+</body>
+
+</html>
