@@ -15,4 +15,3 @@ function perkenalan ($nama, $salam="Assalamualaikum") {
 //memanggil fungsi perkenalan
 perkenalan ("Naufal");
 ?>
-

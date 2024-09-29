@@ -6,4 +6,3 @@ function hitungUmur($thn_lahir, $thn_sekarang){
 
 echo "Saya berusia ". hitungUmur (2005, 2024)." tahun<br/>";
 ?>
-
