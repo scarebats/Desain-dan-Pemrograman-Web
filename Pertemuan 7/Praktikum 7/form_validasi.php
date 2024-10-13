@@ -1,49 +1,55 @@
+<!DOCTYPE html>
 <html>
-<head>
-        <title>Form Input dengan Validasi</title>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
-   </head>
-   <body>
-        <h1>Form Input dengan Validasi</h1>
-        <form id="myForm" method="post" action="proses_validasi.php">
 
+<head>
+    <title>Form Input dengan Validasi</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>Form Input dengan Validasi</h1>
+    <form id="myForm">
         <label for="nama">Nama:</label>
         <input type="text" name="nama" id="nama">
         <span id="nama-error" style="color : red;"></span>
         <br>
 
         <label for="email">Email:</label>
-        <input type="text" name="email" id="email">
-        <span id="email-error" style="color : red;"></span>    
+        <input type="email" name="email" id="email">
+        <span id="email-error" style="color : red;"></span>
         <br>
 
+        <label for="pass">Password:</label>
+        <input type="password" name="pass" id="pass" minlength="8" >
+        <br>
         <input type="submit" value="Submit">
-        </form>
-        
-        <div id="hasil"></div>
+    </form>
 
-        <script>
-            $(document).ready(function(){
-                $("#myForm").submit(function(event){
-                    var nama = $("#nama").val()
-                    var email = $("#email").val()
-                    var valid = true
+    <div id="hasil"></div>
 
-                    if (nama == "") {
-                        $("#nama-error").text("Nama harus diisi.")
-                        valid = false
-                    } else {
-                        $("#nama-error").text("")
-                    }
-                    
-                    if (email == "") {
-                        $("#email-error").text("Email harus diisi.")
-                        valid = false
-                    } else {
-                        $("#email-error").text("")
-                    }
+    <script>
+        $(document).ready(function () {
+            $("#myForm").submit(function (event) {
+                event.preventDefault()
+                var nama = $("#nama").val()
+                var email = $("#email").val()
+                var valid = true
 
-                    if (valid) {
+                if (nama == "") {
+                    $("#nama-error").text("Nama harus diisi.")
+                    valid = false
+                } else {
+                    $("#nama-error").text("")
+                }
+
+                if (email == "") {
+                    $("#email-error").text("Email harus diisi.")
+                    valid = false
+                } else {
+                    $("#email-error").text("")
+                }
+
+                if (valid) {
                     var formData = $("#myForm").serialize()
                     $.ajax({
                         url: "proses_validasi.php",
@@ -53,9 +59,11 @@
                             $("#hasil").html(response)
                         }
                     })
-                    }
-                })
+                }
+
             })
-        </script>
-   </body>
+        })
+    </script>
+</body>
+
 </html>

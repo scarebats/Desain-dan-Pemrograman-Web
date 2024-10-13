@@ -2,6 +2,7 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nama = $_POST['nama'];
     $email = $_POST['email'];
+    $pass = $_POST['pass'];
     $errors = array();
     if (empty($nama)) {
         $errors[] = 'Nama harus diisi.'; 
