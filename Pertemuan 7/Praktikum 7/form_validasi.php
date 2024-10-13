@@ -19,6 +19,8 @@
 
         <input type="submit" value="Submit">
         </form>
+        
+        <div id="hasil"></div>
 
         <script>
             $(document).ready(function(){
@@ -41,11 +43,17 @@
                         $("#email-error").text("")
                     }
 
-                    if (!valid) {
-                        event.preventDefault()
+                    if (valid) {
+                    var formData = $("#myForm").serialize()
+                    $.ajax({
+                        url: "proses_validasi.php",
+                        type: "POST",
+                        data: formData,
+                        success: function (response) {
+                            $("#hasil").html(response)
+                        }
+                    })
                     }
-
-                    
                 })
             })
         </script>
