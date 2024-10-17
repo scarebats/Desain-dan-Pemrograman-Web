@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo $error . '<br>';
         }
     } else {
-        echo "Data berhasil dikirim: Nama = $nama, Email = $email";
+        echo "Data berhasil dikirim: <br> Nama = $nama <br> Email = $email <br> Password = $pass";
     }
 }
 ?>
